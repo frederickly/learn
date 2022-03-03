@@ -109,23 +109,6 @@ class BarberShopProblem {
         set.clear();
         Thread.sleep(500);
 
-        for (int i = 0; i < 5; i++) {
-            Thread t = new Thread(new Runnable() {
-                public void run() {
-                    try {
-                        barberShopProblem.customerWalksIn();
-                    } catch (InterruptedException ie) {
-
-                    }
-                }
-            });
-            set.add(t);
-        }
-        for (Thread t : set) {
-            t.start();
-            Thread.sleep(5);
-        }
-
         barberThread1.join();
         barberThread2.join();
 
